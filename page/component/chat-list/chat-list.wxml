@@ -1,0 +1,40 @@
+<!--page/component/chat-list/chat-list.wxml-->
+
+<wxs module="beautify" src="../../../util/beautify.wxs" />
+
+
+
+<view class="box">
+    <view wx:for="{{list}}" wx:for-index="index" class="chat-item" wx:key="key" hover-class="none" hover-stop-propagation="false">
+        <navigator class="to" url="../chat/chat?user_id={{item.user_id}}" data-userid="{{item.user_id}}" bindtap="interChat" hover-class="navigator-hover" open-type="navigate">
+           <view class="gphoto">
+                <image class="gphoto-img" src="{{item.gphoto}}" mode="aspectFit" />
+                <view wx-if="{{item.unread==1}}" class="unread"></view>
+            </view>
+            <view class="message">
+                <view class="msg-user" >
+                    <view class="user-name" > 
+                        <text class="" >{{item.name}}</text>
+                    </view>  
+                    <view class="user-school" > 
+                        <text class="" >{{item.school}}</text>
+                    </view>
+                </view>
+                <view class="msg-good" >
+                    <!-- # <text class="">{{item.from}}</text> -->
+                </view>
+                <!-- <view class="time" >
+                    <text class="" selectable="false" space="false" decode="false">
+                        三天前
+                    </text>
+                </view> -->
+            </view>
+            <view class="time" >
+                <text class="" selectable="false" space="false" decode="false">
+                    {{  item.time?beautify.beautify_time(item.time):"未知时间"}}
+                </text>
+            </view>
+        </navigator>
+    </view>   
+</view>
+  

@@ -1,0 +1,32 @@
+<!-- page/component/cart2/cart2.wxml -->
+<wxs module="beautify" src="../../../util/beautify.wxs" />
+<view class="orders-box">
+    <!-- <view class="orders">我的订单</view> -->
+    <navigator class="orders-list" wx:for="{{orders}}" wx:key="index" url="../details/details?good_id={{item.Id}}">
+        <view class="orders-number">发布于：{{beautify.beautify_time(item.CreatedAt)}}</view>
+        <view class="orders-detail">
+            <image src="{{item.Gphoto}}" mode="aspectFill"></image>
+            <view class="list-name">{{item.Name}}</view>
+            <view class="">¥{{item.Price}}</view>
+            <text class="orders-status">{{item.status}}</text>
+        </view>
+        <view class="orders-footer">
+            <!-- <text>实付：￥{{item.money}}</text> -->
+            <!-- <button size="mini" class="orders-btn" bindtap="">更多</button> -->
+            <button wx-if="{{!item.Is_low}}" size="mini" class="orders-btn" data-id="{{item.Id}}" data-index="{{index}}" catchtap="down">
+                下架
+            </button>
+            <button wx-if="{{item.Is_low}}" size="mini" class="orders-btn" data-id="{{item.Id}}" data-index="{{index}}" catchtap="shelves">
+                上架
+            </button>
+            <!-- <button size="mini" class="orders-btn" bindtap="">改价</button> -->
+            <button size="mini" class="orders-btn" data-goodid="{{item.Id}}" catchtap="edit">
+                编辑
+            </button>
+        </view>
+    </navigator>
+</view>
+<view class="bottom" wx:if="{{loading}}">
+    <!-- <text class="loading-text" selectable="false" space="false" decode="false"></text> -->
+    {{noMore==true?"下面没有了":"加载中..."}}
+</view>

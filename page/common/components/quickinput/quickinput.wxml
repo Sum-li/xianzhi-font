@@ -1,0 +1,9 @@
+<!--page/common/components/quickinput/quickinput.wxml-->
+<view class="scroll_box" hover-class="none" hover-stop-propagation="false">
+    <scroll-view class="scroll-view_x" scroll-x="true" scroll-y="false">
+        <button wx:for="{{options}}" class="option" bind:tap="select" data-index="{{index}}">
+        {{item}}
+        </button>
+    </scroll-view>
+</view>
+  

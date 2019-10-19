@@ -1,0 +1,75 @@
+{
+  "pages": [
+    "page/component/index",
+    
+    "page/component/list/list",
+    "page/component/approve/approve",
+    "page/component/cart/cart",
+    "page/component/chat-list/chat-list",
+    "page/component/cart2/cart2",
+    "page/component/publish/publish",
+    "page/component/category/category",
+    "page/component/orders/orders",
+    "page/component/details/details",
+    "page/component/user/user",
+    "page/component/cart4/cart4",
+    "page/component/address/address",
+    "page/component/chat/chat",
+    "page/component/accredit/accredit",
+    "page/component/cart3/cart3",
+    "page/component/edit/edit"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "零食商贩",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#fff",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#b7b7b7",
+    "selectedColor": "#BC8F8F",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "page/component/index",
+        "iconPath": "image/12.png",
+        "selectedIconPath": "image/11.png",
+        "text": ""
+      },
+      {
+        "pagePath": "page/component/category/category",
+        "iconPath": "image/category.png",
+        "selectedIconPath": "image/category2.png",
+        "text": ""
+      },
+      {
+        "pagePath": "page/component/publish/publish",
+        "iconPath": "image/publish.png",
+        "selectedIconPath": "image/publish2.png",
+        "text": ""
+      },
+      {
+        "pagePath": "page/component/chat-list/chat-list",
+        "iconPath": "image/chat77.png",
+        "selectedIconPath": "image/chat66.png",
+        "text": ""
+      },
+      {
+        "pagePath": "page/component/user/user",
+        "iconPath": "image/42.png",
+        "selectedIconPath": "image/41.png",
+        "text": ""
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+}

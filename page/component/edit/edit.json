@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "发布",
+  "backgroundColor": "#ffffff",
+  "usingComponents": {
+    "template-dialog": "../../common/components/dialog/dialog",
+    "template-quickinput":"../../common/components/quickinput/quickinput"
+  }
+}

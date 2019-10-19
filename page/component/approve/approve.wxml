@@ -1,0 +1,33 @@
+<!-- page/component/approve/approve.wxml -->
+<view class="main">
+    <view class="form-box">
+        <!-- <form bindsubmit="formSubmit"> -->
+        <input value="{{name}}" placeholder="姓名" bindinput="bindName" />
+        <input value="{{number}}" placeholder="学号" bindinput="bindPhone" />
+        <input value="{{school}}" placeholder="学校" bindinput="bindDetail" />
+        <!-- </form> -->
+    </view>
+    <view class="scan form-box" hover-class="none" hover-stop-propagation="false">
+        <view class="image" hover-class="none" hover-stop-propagation="false">
+            <text class="tips" selectable="false" space="false" decode="false">
+                请确保学生卡尽量占满整张图片，否则可能会认证失败
+            </text>
+              
+            <image class="" src="{{image}}" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+            <button bindtap="chooseimg">选择图片</button>
+        </view>
+        <view wx:if="{{approved==1}}" class="" hover-class="none" hover-stop-propagation="false">
+            <text class="" selectable="false" space="false" decode="false">
+                审核结果：{{yes==1?"通过":"未通过"}}
+            </text>
+            <!-- <input type="text" disabled="true" value="{{res.name}}"></input> -->
+            <!-- <input type="text" disabled="true" value="{{res.school}}"></input> -->
+            <!-- <input type="text" disabled="true" value="{{res.number}}"></input> -->
+            <button wx:if="{{yes==0}}" bindtap="rengong">申请人工审核</button>
+        </view>
+        <button bindtap="submit">认证</button>
+        <view class="" hover-class="none" hover-stop-propagation="false"></view>
+        <!-- <button form-type="submit">确定</button> -->
+        
+    </view>
+</view>

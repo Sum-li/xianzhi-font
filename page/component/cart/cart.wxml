@@ -1,0 +1,24 @@
+<view class="block"></view>
+<view class="" hover-class="none" hover-stop-propagation="false">
+    <input class="search" value="" type="text" placeholder="关键词" maxlength="140" bindinput="" bindconfirm=""></input>
+</view>
+<view class="main">
+    <view class="list" wx:if="{{goods.length!=0}}">
+        <navigator  wx:for="{{goods}}" open-type="navigate" wx:key="key" data-goodid="{{item.good_id}}" url="../details/details?good_id={{item.Id}}" hover-class="none" class="container good_box">
+            <image class="good-gphoto" src="{{item.Gphoto}}" mode="aspectFill" lazy-load="true" />
+            <view class="good-name">{{item.Name}}</view>
+            <view class="operate {{isStretch[index]==1?'open':''}}">
+                <button class="buy" catchtap="buy" data-goodid="{{item.Id}}">
+                    购买
+                </button>
+                <button class="cancel" data-goodid="{{item.Id}}" catchtap="cancle">取消收藏</button>
+                <button class="back" data-index="{{index}}" catchtap="unstretch">关闭</button>
+            </view>
+            <icon data-index="{{index}}" catchtap="stretch" class="iconfont  icon-zhankai {{isStretch[index]==1?'i-rotate':''}}"></icon>
+            <view class="cover-div {{isStretch[index]==1?'cover':''}}"></view>
+        </navigator>
+    </view>
+    <view wx:else>
+        <view class="cart-no-data">购物车是空的哦~</view>
+    </view>
+</view>

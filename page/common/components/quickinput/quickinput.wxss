@@ -1,0 +1,34 @@
+/* page/common/components/quickinput/quickinput.wxss */
+
+
+
+.scroll_box{
+    width: 100%;
+    overflow: hidden;
+    padding: 10rpx;
+    /* background: #f5f6f5; */
+    border-radius: 4rpx;
+    white-space: nowrap;
+}
+.scroll-view_x::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+.scroll-view_x{
+    width: auto;
+    height: 100%;
+    z-index: 100;
+    overflow-y: hidden;
+}
+
+
+.option{
+    height: auto;
+    margin-right: 10rpx;
+    display: inline-block;
+    color:rgb(143,143,143);
+    font-size: inherit;
+    line-height: inherit;
+    background-color: rgba(240,240,240,0.8);
+}

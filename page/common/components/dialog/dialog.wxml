@@ -1,0 +1,12 @@
+<!--page/common/components/dialog/dialog.wxml-->
+<!-- 底部弹出式的选择框 -->
+<view wx:if="{{state}}" class='drop-bot' bindtap='closer'>
+    <view scroll-y="true" class="box {{first_click?'show':'hide'}} {{state?'open':'close'}}">
+        <view style='height: 100%;' class="item_list">
+            <scroll-view class='scroll' scroll-y="true" style='height: 275rpx'>
+                <view wx:for="{{account}}" wx:key="{{index}}" class=' li {{style}}' data-index="{{index}}" catchtap='select'>{{item.name}} </view>
+            </scroll-view>
+            <button class='li' catchtap='closer'>取消</button>
+        </view>
+    </view>
+</view>

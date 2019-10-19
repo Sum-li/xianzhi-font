@@ -1,0 +1,25 @@
+<view class="orders-box">
+    <!-- <view class="orders">我的订单</view> -->
+    <view class="orders-list" wx:for="{{orders}}" wx:key="{{index}}">
+        <view class="orders-number"> <text class="" selectable="true">订单编号：{{item.OrderId}}</text></view>
+             
+        <view class="orders-detail">
+            <image src="{{item.gphoto}}" mode="aspectFill"></image>
+            <view class="">{{item.name}}</view>
+            <view class="">¥{{item.price}}</view>
+            <text class="orders-status">{{item.status}}</text>
+        </view>
+        <view class="orders-footer">
+            <view class="orders-buymsg" hover-class="none" hover-stop-propagation="false">
+                <text class="" selectable="true">买家电话：{{item.telephone}}</text>
+                <text class="" selectable="true">{{item.address}}</text>
+            </view>
+            <!-- <text>实付：￥{{item.money}}</text> -->
+            <!-- <button size="mini" class="orders-btn" bindtap="delOrders">删除</button> -->
+            <!-- <button size="mini" class="orders-btn" bindtap="">下架</button> -->
+            <!-- <button size="mini" class="orders-btn" bindtap="">改价</button> -->
+            <!-- <button size="mini" class="orders-btn" bindtap="">评论</button> -->
+            <button size="mini" data-userid="{{item.user_id}}" class="orders-btn" bindtap="chat">联系买家</button>
+        </view>
+    </view>
+</view>

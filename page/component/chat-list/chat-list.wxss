@@ -1,0 +1,78 @@
+/* page/component/chat-list/chat-list.wxss */
+
+page {
+    background-color: #f5f6f5;
+}
+
+.chat-item {
+    border-bottom: 10rpx solid #f5f6f5;
+    background-color: rgb(250, 250, 250);
+    /* width: 100%; */
+}
+
+.to {
+    height: 120rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15rpx;
+}
+
+.gphoto {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gphoto-img {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+
+.message {
+    /* margin-left: 30rpx; */
+    /* padding: 15rpx; */
+    position: relative;
+    /* left: -100rpx; */
+    width: 60%;
+}
+
+.msg-user {
+    display: flex;
+    font-size: 35rpx;
+}
+
+.msg-user view {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    /* white-space:nowrap;   */
+}
+
+.msg-good {
+    font-size: 25rpx;
+    color: gray;
+}
+
+.time {
+    font-size: 25rpx;
+    color: gray;
+    line-height: 100%;
+}
+
+.user-name {}
+
+.unread {
+    position: absolute;
+    top:0rpx;
+    left:80rpx;    
+    width: 25rpx;
+    height: 25rpx;
+    border-radius: 50%;
+    background-color: red;
+}

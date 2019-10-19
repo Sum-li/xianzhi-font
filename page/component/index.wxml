@@ -1,0 +1,104 @@
+<!-- 首页 -->
+<wxs module="beautify" src="../../util/beautify.wxs" />
+<view class="main">
+    <view class="search-box" hover-class="none" hover-stop-propagation="false">
+        <input type="text" class="search" confirm-type="search" bindconfirm="search" bindinput="bindsearch" maxlength='30'>
+            <button>
+                <icon class="" type="search" size="23" color=""></icon>
+            </button>
+        </input>
+    </view>
+    <view class="swiper-box" hover-class="none" hover-stop-propagation="false">
+        <view class="dec" hover-class="none" hover-stop-propagation="false"></view>
+        <swiper indicator-dots="true" autoplay="true" interval="3000" duration="500" circular="true">
+            <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+                <swiper-item>
+                    <image src="{{item}}" class="slide-image" width="100%" mode="aspectFill" />
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="selected">
+        <view class="select-title">
+            <text>热度TOP5</text>
+        </view>
+        <scroll-view class="rank-box" scroll-x="{{true}}" scroll-y="{{false}}">
+            <navigator wx:for="{{good_list}}" wx:if="{{index<5}}" wx:key="index" data-goodid="{{item.good_id}}" url="details/details?good_id={{item.good_id}}" class="good-box rank-item">
+                <image class="good-gphoto" src="{{item.gphoto}}" mode="aspectFill" lazy-load="true" />
+                <view class="good-name1">{{item.name}}</view>
+            </navigator>
+        </scroll-view>
+    </view>
+    <view class="orderBy" hover-class="none" hover-stop-propagation="false">
+        <view class='menu'>
+            <view class='menu-list'>
+                <view class='menu-nav {{ortherBy==0?"menu-nav-on":""}} ' data-index="0" bindtap="menuClick">
+                    <text class='menu-text'>综合排序 </text>
+
+                </view>
+                <view class='menu-nav {{ortherBy==1?"menu-nav-on":""}}' data-index="1" bindtap="menuClick">
+                    <text class='menu-text'>毕业季·专场 </text>
+                              <icon class='iconfont icon-biye'></icon>
+
+                </view>
+                <!-- <view class='menu-nav {{ortherBy==2?"menu-nav-on":""}}' data-index="2" bindtap="menuClick">
+                    <text class='menu-text'>推荐</text>
+                </view>
+                <view class='menu-nav {{ortherBy==3?"menu-nav-on":""}}' data-index="3" bindtap="menuClick">
+                    <text class='menu-text'>附近</text>
+                </view> -->
+            </view>
+        </view>
+    </view>
+    <view class="newgood">
+        <!-- <view class="newgood-title">
+            <text>最近新品</text>
+        </view> -->
+        <view class="newgood-box">
+            <view class="newgood-list" wx:for="{{ ortherBy==0?good_list:active_gd_good_list}}" wx:key="key">
+                <navigator data-goodid="{{}}" class="nav" url="details/details?good_id={{item.good_id}}" hover-class="navigator-hover">
+                    <view class="nav-left" hover-class="none" hover-stop-propagation="false">
+                        <image mode='aspectFill' src="{{item.gphoto}}"></image>
+                    </view>
+                    <view class="nav-right" hover-class="none" hover-stop-propagation="false">
+                        <view class="newgood-text good-name">
+                            <text>{{item.name}}</text>
+                        </view>
+                        <view class="newgood-text good-peice">
+                            <text class="">¥{{item.price}}</text>
+                        </view>
+                         <view class="newgood-text newgood-text-school" hover-class="none" hover-stop-propagation="false">
+                                <text>{{item.school}}</text>
+                        </view>
+                        <view class="newgood-text good-hot" hover-class="none" hover-stop-propagation="false">
+                            <!-- <text class="" selectable="false" space="false" decode="false">
+                                热度
+                            </text> -->
+                            <icon class="iconfont icon-redu" size="23" color="red"></icon>
+                            <text class="" selectable="false" space="false" decode="false">{{item.browse}}</text>
+                        </view>
+                       
+                        <view class="newgood-text-user">
+                            <!-- <view class="newgood-text-school">
+                                <text>{{item.school}}</text>
+                            </view> -->
+                            <icon class="iconfont     icon-yirenzheng2"></icon>
+                            <view class="newgood-text-name">
+                                <!-- <text>| {{item.user_name}}</text> -->
+                                | {{item.user_name}}
+                            </view>
+                            <view class="newgood-text-time" data-time='{{item.pub_time}}'>
+                                <text>{{beautify.beautify_time(item.pub_time)}}发布</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="bottom" wx:if="{{loading}}">
+        <!-- <text class="loading-text" selectable="false" space="false" decode="false"></text> -->
+        
+        {{noMore==true?"下面没有了":"加载中..."}}
+    </view>
+</view>

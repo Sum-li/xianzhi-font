@@ -1,0 +1,91 @@
+<view class="main">
+    <!-- <navigator class="cart" open-type="switchTab" url="../cart/cart">
+        <view class="carts-icon {{scaleCart?'on':''}}">
+            <image src="/image/cart2.png"></image>
+            <icon class="iconfont icon-qicheqianlian-1-copy"></icon>
+            <text class="carts-icon-num" wx:if="{{hasCarts}}">{{hasCarts>0?1:0}}</text>
+        </view>
+    </navigator> -->
+    <view class="goods-box">
+        <image src="{{goods.gphoto}}" class="goods-thumb" mode="widthFix"></image>
+        <!-- <view class="goods-stock">{{goods.stock}}</view> -->
+        <view class="goods-title">{{goods.title}}</view>
+        <view class="goods-price">￥{{goods.price}}</view>
+        <image wx:if="{{show}}" src="/image/cart1.png" class="to-carts-icon"></image>
+    </view>
+
+    <view class="goods-user" >
+        <navigator class="to" target="" url="" hover-class="navigator-hover" open-type="navigate">
+           <view class="gphoto">
+                <image class="gphoto-img" src="{{user.avavtar}}" mode="aspectFit|aspectFill|widthFix" />
+            </view>
+            <view class="message">
+                <view class="msg-user" >
+                    <view class="user-school" > 
+                        <text class="" > </text>
+                    </view>
+                    <view class="user-name" > 
+                        <text class="" >{{user.user_name}}</text>
+                    </view>  
+                </view>
+                <view class="msg-detail" >
+                    <text class="">来自{{user.user_school}} 成功交易：{{user.sell_count}}件</text>
+                </view>
+                
+            </view>
+            <view class="operate" >
+                <button bindtap="chat" hover-stop-propagation="true" wx:if="{{!isMyself}}">
+                    私信TA
+                </button>
+            </view>
+        </navigator>
+    </view>
+    <view class="goods-tab-box">
+        <!-- <view class="goods-tab-nav" bindtap="bindTap" data-index="0">
+            物品详情
+        </view> -->
+        <view class="goods-content">
+            <!-- <view wx:if="{{curIndex === 0}}">{{goods.detail}}</view> -->
+            <view >
+                <text class="" selectable="false" space="false" decode="false">
+                    {{goods.detail}}
+                </text>
+                <view class="good-img-box" hover-class="none" hover-stop-propagation="false">
+                    <image class="good-img" mode="widthFix" wx:for="{{goods.images}}" wx:key="{{key}}" src="{{goods.images[index]}}"     />
+                </view>
+                  
+            </view>
+        </view>
+    </view>
+    <view class="goods-operation" wx:if="{{!isMyself && !is_buy}}">
+        <view class="opera-item" hover-class="none" hover-stop-propagation="false">
+            <navigator class="to-pay" target="" url="../orders/orders?good_id={{goods.id}}" hover-class="navigator-hover" open-type="navigate">
+                立即购买
+                <icon class="iconfont icon-goumai1"></icon>  
+            </navigator>
+        </view>
+        <view wx:if="{{isnotCart}}" class="operation-to-cart opera-item" bindtap="addToCart">
+            收藏<icon class="iconfont icon-shoucang1"></icon>
+        </view>
+        <view wx:else  class="operation-to-cart opera-item" bindtap="popToCart">
+            取消收藏<icon class="iconfont icon-shoucang"></icon>
+        </view>
+    </view>
+    <view class="goods-operation operate-ismyself" wx:elif="{{isMyself && !is_buy}}">
+        <view class="opera-item" hover-class="none" hover-stop-propagation="false">
+            <navigator class="to-pay" target="" url="../edit/edit?good_id={{goods.id}}" hover-class="navigator-hover" open-type="navigate">
+                编辑
+                <icon class="iconfont icon-edit"></icon>  
+            </navigator>
+        </view>
+        <view wx:if="{{isnotCart}}" class="operation-to-cart opera-item" bindtap="down">
+            下架<icon class="iconfont icon-xiajia"></icon>
+        </view>
+        <view wx:else  class="operation-to-cart opera-item" bindtap="shelves">
+            重新上架<icon class="iconfont icon-shangjia"></icon>
+        </view>
+    </view>
+    <view class="goods-operation operate-ismyself" wx:elif="{{is_buy}}">
+        已售出
+    </view>
+</view>

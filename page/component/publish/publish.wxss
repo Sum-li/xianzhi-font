@@ -1,0 +1,218 @@
+/* page/component/publish/publish.wxss */
+@import "../../common/iconfont.wxss";
+
+page{
+  padding-bottom: 50rpx;
+  background-color: #f5f5f5;
+}
+::-webkit-scrollbar{
+  width:0;
+  height: 0;
+  color: transparent;
+}
+.iconfont{
+  color: gray;
+}
+
+.main{
+  padding-top: 10rpx;
+  padding-bottom: 100rpx;
+}
+.category-btn{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  overflow: hidden;
+  background-color: transparent;
+}
+textarea{
+  width: 100%;
+  font-size: 30rpx;
+  min-height: 300rpx;
+  /* text-indent:12rpx */
+}
+button::after {
+  border: none;
+}
+
+.price{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 14px;
+  text-align: left;
+  overflow: hidden;
+  background-color: transparent;
+  border: 0px solid snow;
+}
+
+.panel{
+  background-color: white;
+  /* width: 95%; */
+  /* border-radius: 2px; */
+  /* margin: 30rpx auto ; */
+  padding: 20rpx 5px;
+  /* box-shadow: 0 4rpx 8rpx 0 rgba(0,0,0,0.20); */
+  overflow: hidden;
+}
+.div-line{
+  background: #E0E3DA;
+  width: 91%;
+  margin: 0 auto;
+  height: 3rpx;
+}
+
+
+
+/* 文字描述部分 */
+.message{
+  position: relative;
+  border-bottom: 10rpx solid #ededed;
+
+}
+.title{
+  height: 70rpx;
+}
+.detail{
+  height: 300rpx;
+}
+.quickinput{
+  width: 95%;
+  /* position: absolute; */
+  /* bottom: 10rpx; */
+  margin: 0 auto;
+  z-index: 100;
+  font-size: 28rpx;
+  /* overflow-x: scroll; */
+}
+
+/* 图片预览部分 */
+.good-images{
+  min-height: 200rpx;
+}
+.images-hint{
+  text-align: center;
+}
+.add-img{
+  background-color: transparent !important;
+  /* color: #eeeeee !important; */
+  display:block;
+  margin:0 auto;
+  padding: 0;
+  height: 200rpx;
+  width: 200rpx;
+}
+.add-img image{
+  height: 200rpx !important;
+  width: 200rpx !important;
+}
+.image{
+  width: 200rpx;
+  height:200rpx;
+  border-radius: 4rpx;
+}
+.image-wrap{
+  position: relative;
+  display: inline-block;
+  margin: 20rpx 21rpx;
+
+}
+.image-remover{
+  position: absolute;
+  right: 15rpx;
+  top: -5rpx;
+  /* width: 20rpx; */
+  /* height: 20rpx; */
+  transform: scale(1.8)
+}
+.image-opera button{
+font-size: 0}
+
+
+
+
+
+/* 选择分类部分 */
+
+.text-placeholder{
+  color: rgb(143, 143, 143);
+  font-size: 0.8rem;
+  /* position: absolute; */
+  /* right: 0rpx; */
+}
+
+.submit{
+  display: block;
+  position: fixed;
+  bottom:0rpx;
+  width: 100%;
+  background-color: white;
+  border-radius: 10rpx;
+
+}
+.submit-btn{
+  background-color: rgba(255,255,255,1) ;
+  /* color:#004461; */
+  color: rosybrown;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80rpx;
+}
+.submit-btn image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.icon-fabu{
+  color:rosybrown;
+  /* font-size: 55rpx; */
+}
+.price-btn-left{
+  width: 80%;
+}
+
+
+.festival-gd{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 14px;
+  text-align: left;
+  overflow: hidden;
+  background-color: transparent;
+  border: 0px solid snow;
+}
+.festival-btn-left{
+  /* width: 80%; */
+}
+
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.7;
+}
+
+.modalDlg {
+  width: 650rpx;
+  height: 80%;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  margin: -475rpx 50rpx;
+  background-color: #ededed;
+  border-radius: 36rpx;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+
+}

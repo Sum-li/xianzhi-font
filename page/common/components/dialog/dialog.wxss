@@ -1,0 +1,75 @@
+/* page/common/components/dialog/dialog.wxss */
+
+.drop-bot {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, .2);
+    z-index: 1000;
+}
+.item_list{
+  border-radius: 4rpx;
+  background-color: rgba(243, 243, 243, .8)
+}
+/* ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+} */
+.drop-bot .box{
+    width: 100%;
+    border-top: 1px solid #ddd;
+    overflow: hidden;
+    height: 0;
+    animation-fill-mode: forwards;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-family: Monaco;
+}
+.item_list .li.style {
+     font-family: Monaco;
+}
+.item_list .li{
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    overflow: auto;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1rpx solid #ebebeb;
+}
+@keyframes slidedown{
+    from {
+        height: 0;
+    }
+    to {
+        height: 365rpx;
+    }
+}
+@keyframes slideup{
+    from {
+        height: 365rpx;
+    }
+    to {
+        height: 0;
+    }
+}
+.open{
+    animation: slidedown .5s;
+}
+.close{
+    animation: slideup .5s;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+
+

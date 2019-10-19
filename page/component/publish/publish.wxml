@@ -1,0 +1,70 @@
+<!-- page/component/publish/publish.wxml -->
+<view class="main">
+  <view class="message panel">
+    <input class="title" placeholder='标题' data-name="name" bindinput="inputedit" value="{{good_name}}"></input>
+    <view class="div-line"></view>
+    <textarea auto-height="true" maxlength="-1" class="detail" placeholder='物品描述...' data-name="discribe" value="{{textarea_value}}" bindinput="textareaedit"></textarea>
+    <template-quickinput class='quickinput' options="{{options}}" bind:myevent="select" hover-stop-propagation="true"></template-quickinput>
+  </view>
+  <view class="img panel">
+    <view class="good-images">
+      <view wx:if="{{images.length==0}}" class="images-hint" hover-class="none" hover-stop-propagation="false">
+        选择你的闲置物品
+      </view>
+      <block class="images-item" wx:for="{{images}}" wx:key="*this">
+        <view class="image-wrap">
+          <!-- 图片缩略图 -->
+          <image class="image" src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="handleImagePreview"></image>
+          <!-- 移除图片的按钮 -->
+          <icon class="iconfont icon-close image-remover" data-idx="{{index}}" bindtap="removeImage"></icon>
+        </view>
+      </block>
+      <view class="image-opera image-wrap" hover-class="none" hover-stop-propagation="false">
+        <button class="add-img" type="default" size="mini" bindtap="chooseImage" wx:if="{{images.length < 9}}">
+          <image src="/image/addimg2.png" mode="scaleToFill"></image>
+        </button>
+      </view>
+    </view>
+    <view class="div-line"></view>
+    <view class="category">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{category}}">
+        <button class="picker category-btn">
+          <view class="category-btn-left">
+            <text>{{category[index]}}</text>
+          </view>
+          <view class="category-btn-right">
+            <text class="text-placeholder">分类</text>
+            <icon class='iconfont icon-right'></icon>
+          </view>
+        </button>
+      </picker>
+    </view>
+    <view class="div-line"></view>
+    <view class="price " hover-class="none" hover-stop-propagation="false">
+      <view class="price-btn-left">
+        <input type="number" data-name="price" bindinput="priceEdit" value="{{price}}"></input>
+      </view>
+      <view class="price-btn-right">
+        <text class="text-placeholder">价格</text>
+        <icon class='iconfont icon-rmb'></icon>
+      </view>
+    </view>
+    <view class="div-line"></view>
+    <view class="festival-gd" hover-class="none" hover-stop-propagation="false">
+      <view class="festival-btn-left">
+        <switch bindchange="gdChange" />
+      </view>
+      <view class="festival-btn-right">
+        <text class="text-placeholder">毕业季·专场 </text>
+          <icon class='iconfont icon-biye'></icon>
+      </view>
+    </view>
+  </view>
+  <view class="submit">
+    <button class="submit-btn" bindtap="submitForm">
+      <text class="" selectable="false" space="false" decode="false">发布</text>
+      <image class="" src="/image/paper-plane.png" mode="widthFix" />
+      <!-- <icon class="iconfont icon-paper-plane"></icon> -->
+    </button>
+  </view>
+</view>
